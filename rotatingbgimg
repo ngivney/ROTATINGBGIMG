@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Rotating Background Images</title>
+<head>
+<style type="text/css">
+body {
+padding:0;
+margin:0;
+height: 1000px;
+}
+table{
+height: 1000px;
+}
+</style>
+<script  type="text/javascript">
+/*<![CDATA[*/
+var ImgAry=['http://ngivney.comyr.com/ATPS/img/bgimg91.jpg','http://ngivney.comyr.com/ATPS/img/bgimg90.jpg','http://ngivney.comyr.com/ATPS/img/bgimg1.jpg','http://ngivney.comyr.com/ATPS/img/bgimg2.jpg','http://ngivney.comyr.com/ATPS/img/bgimg3.jpg','http://ngivney.comyr.com/ATPS/img/bgimg4.jpg','http://ngivney.comyr.com/ATPS/img/bgimg5.jpg','http://ngivney.comyr.com/ATPS/img/bgimg6.jpg','http://ngivney.comyr.com/ATPS/img/bgimg7.jpg','http://ngivney.comyr.com/ATPS/img/bgimg8.jpg','http://ngivney.comyr.com/ATPS/img/bgimg9.jpg','http://ngivney.comyr.com/ATPS/img/bgimg10.jpg','http://ngivney.comyr.com/ATPS/img/bgimg11.jpg','http://ngivney.comyr.com/ATPS/img/bgimg12.jpg','http://ngivney.comyr.com/ATPS/img/bgimg13.jpg','http://ngivney.comyr.com/ATPS/img/bgimg14.jpg'];
+// preload the images
+ for (var img,z0=0;z0<ImgAry.length;z0++){
+  img=ImgAry[z0];
+  ImgAry[z0]=new Image();
+  ImgAry[z0].src=img;
+ }
+
+var cnt=0,to=null;
+
+function Rotate(){
+ cnt=++cnt%ImgAry.length;
+ document.getElementById('t1').style.backgroundImage='url('+ImgAry[cnt].src+')';
+ to=setTimeout(function(){ Rotate(); },15000);
+}
+
+/*]]>*/
+</script>
+</head>
+<body onload="Rotate();" bgcolor="green">
+<table id="t1" width="100%" border="0" cellspacing="0" cellpadding="0" background="img/bgimg90.jpg" border="0" style="background-repeat:no-repeat;">
+<tr>
+<td>
+&nbsp;
+</td></tr>
+</table>
+</body>
+</html>
